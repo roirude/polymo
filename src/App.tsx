@@ -1,9 +1,13 @@
+import Button from "./components/Button"
 
 
 function App() {
   return (
     <>
-      <h1>Hello world!</h1>
+      {/* Buttons */}
+      <div className="flex items-center justify-center m-40">
+        <Button label="primary" />
+      </div>
     </>
   )
 }

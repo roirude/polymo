@@ -1,25 +1,37 @@
 import React from "react"
 import clsx from "clsx"
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    children: React.ReactNode
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "secondary"
     className?: string
+    size?: "sm" | "md" | "lg"
+    children: React.ReactNode
 }
 
-const Button = ({ children, variant = "primary", onClick, className, ...rest }: ButtonProps) => {
+const variants = {
+    primary: "bg-black text-white hover:bg-black/85",
+    secondary: "bg-transparent hover:bg-black/5"
+}
+
+const sizes = {
+    sm: "px-3 py-1.5 text-sm",
+    md: "px-4 py-2 text-base",
+    lg: "px-6 py-3 text-lg"
+}
+
+const Button = ({ children, variant = "primary", size = "md",  onClick, className, ...props }: ButtonProps) => {
+    const buttonClassNames = clsx(
+        "px-4 py-2 border-2 rounded-lg cursor-pointer transition-all ease-linear duration-100",
+        className,
+        variants[variant],
+        sizes[size]
+    )
+
     return (
         <button
             onClick={onClick}
-            className={clsx(
-                "px-4 py-2 border-2 rounded-sm cursor-pointer transition-all ease-linear duration-100",
-                className,
-                {
-                    "bg-black text-white hover:bg-black/85": (variant === "primary"),
-                    "bg-transparent hover:bg-black/5": (variant === "secondary")
-                },
-            )}
-            {...rest}
+            className={buttonClassNames}
+            {...props}
         >
             {children}
         </button>

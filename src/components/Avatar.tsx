@@ -38,9 +38,9 @@ const Avatar = ({
         if (src) {
             return <img src={src} alt={alt} className={avatarClassName} />
         } else if (initials) {
-            return <div className={`bg-black text-white flex items-center justify-center font-black capitalize ${avatarClassName}`}>{initials}</div>
+            return <div className={`bg-black text-white flex items-center justify-center font-black uppercase ${avatarClassName}`}>{initials}</div>
         } else {
-            return <div className={`bg-black text-white flex items-center justify-center font-black capitalize ${avatarClassName}`}>PL</div>
+            return <div className={`bg-black text-white flex items-center justify-center font-black uppercase ${avatarClassName}`}>PL</div>
         }
     }
 

@@ -1,14 +1,13 @@
 import React from "react"
 import clsx from "clsx"
 
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     children: React.ReactNode
     variant?: "primary" | "secondary"
-    onClick?: () => void
     className?: string
 }
 
-const Button = ({ children, variant = "primary", onClick, className }: ButtonProps) => {
+const Button = ({ children, variant = "primary", onClick, className, ...rest }: ButtonProps) => {
     return (
         <button
             onClick={onClick}
@@ -20,6 +19,7 @@ const Button = ({ children, variant = "primary", onClick, className }: ButtonPro
                     "bg-transparent hover:bg-black/5": (variant === "secondary")
                 },
             )}
+            {...rest}
         >
             {children}
         </button>

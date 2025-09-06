@@ -32,9 +32,9 @@ function App() {
       <div className="flex items-center justify-center gap-5 mt-2">
         <Avatar src={avatar} alt="avatar" />
         <Avatar initials="rd" />
-        <Avatar size="sm" />
+        <Avatar size="sm" variant="square" />
         <Avatar size="lg" />
-        <Avatar size="lg" src={avatar} />
+        <Avatar size="lg" src={avatar} variant="square" />
       </div>
     </>
   )

@@ -7,6 +7,7 @@ interface AvatarProps {
     initials?: string
     size?: "sm" | "md" | "lg"
     variant?: "round" | "square"
+    className?: string
 }
 
 const sizes = {
@@ -25,11 +26,13 @@ const Avatar = ({
     alt,
     initials,
     size = "md",
-    variant = "round"
+    variant = "round",
+    className
 }: AvatarProps) => {
 
     const avatarClassName = clsx(
         "object-cover",
+        className,
         sizes[size],
         variants[variant]
     )

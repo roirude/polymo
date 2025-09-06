@@ -6,8 +6,8 @@ function App() {
     <>
       {/* Buttons */}
       <div className="flex items-center justify-center m-40 gap-5">
-        <Button label="primary" />
-        <Button label="secondary" variant="secondary" />
+        <Button>primary</Button>
+        <Button variant="secondary">secondary</Button>
       </div>
     </>
   )

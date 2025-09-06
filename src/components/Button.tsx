@@ -1,13 +1,14 @@
+import React from "react"
 import clsx from "clsx"
 
 type ButtonProps = {
-    label: string,
+    children: React.ReactNode
     variant?: "primary" | "secondary"
     onClick?: () => void
     className?: string
 }
 
-const Button = ({ label, variant = "primary", onClick, className }: ButtonProps) => {
+const Button = ({ children, variant = "primary", onClick, className }: ButtonProps) => {
     return (
         <button
             onClick={onClick}
@@ -16,11 +17,11 @@ const Button = ({ label, variant = "primary", onClick, className }: ButtonProps)
                 className,
                 {
                     "bg-black text-white hover:bg-black/85": (variant === "primary"),
-                    "bg-transparent hover:bg-black/10": (variant === "secondary")
+                    "bg-transparent hover:bg-black/5": (variant === "secondary")
                 },
             )}
         >
-            {label}
+            {children}
         </button>
     )
 }
